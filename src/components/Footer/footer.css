@@ -1,0 +1,41 @@
+.footer-container {
+  width: 100%;
+  padding: 30px;
+  background: #111;
+  color: #757575;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+ .footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+ .footer-links li:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  margin-top: 10px;
+}

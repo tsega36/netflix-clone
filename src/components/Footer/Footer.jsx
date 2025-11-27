@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-copyright">
-          Copyright © 1997-2025 Netflix Inc.
+           © 1997-2025 Netflix Inc.
         </div>
       </div>
     </>

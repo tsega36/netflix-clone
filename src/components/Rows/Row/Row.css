@@ -1,0 +1,87 @@
+/* Row container */
+.row {
+  color: #fff;
+  margin: 0;
+  padding: 10px 20px; /* minimal padding */
+  background-color: #000; /* Netflix-style black */
+}
+
+/* Row title */
+.row-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 5px 0; /* minimal vertical margin */
+  padding-left: 5px;
+}
+
+.row-posters {
+  display: flex;
+  overflow-x: auto; /* horizontal scroll */
+  overflow-y: hidden; /* hide vertical scroll */
+  padding: 20px 0;
+  scroll-behavior: smooth;
+}
+
+.row-posters::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Posters */
+.row-poster {
+  flex: 0 0 auto; /* prevent shrinking */
+  width: 140px; /* fixed width for small posters */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.row-poster:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.row-poster-large {
+  width: 180px; /* larger width for featured posters */
+  height: 250px;
+}
+
+.row-poster-large:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
+}
+
+/* YouTube Trailer Player */
+.row-trailer {
+  margin-top: 20px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .row-title {
+    font-size: 1.3rem;
+  }
+
+  .row-poster {
+    width: 100px;
+    height: 150px;
+  }
+
+  .row-poster-large {
+    width: 140px;
+    height: 200px;
+  }
+
+  .row-trailer {
+    height: 280px;
+  }
+}

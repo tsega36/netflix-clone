@@ -1,9 +1,15 @@
-.Header-outer-container {
+.header-outer-container {
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 1000;
-  background-color: #141414; /* Netflix black */
+  background-color: transparent; /* Transparent by default */
+  transition: background-color 0.5s ease; /* Smooth transition on scroll */
+}
+
+/* Header becomes black after scrolling */
+.header-outer-container.header-black {
+  background-color: #141414;
 }
 
 .header-container {

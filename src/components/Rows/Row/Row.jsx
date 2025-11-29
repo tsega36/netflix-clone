@@ -4,17 +4,22 @@ import movieTrailer from "movie-trailer";
 import Youtube from "react-youtube";
 import "./Row.css";
 
+// Base URL for TMDB images
 const baseImgUrl = "https://image.tmdb.org/t/p/original";
 
 const Row = ({ title, fetchUrl, isLarge }) => {
+  // Store movie list
   const [movies, setMovies] = useState([]);
+
+  // Store trailer video ID
   const [trailerUrl, setTrailerUrl] = useState("");
 
+  // Fetch movies on page load OR when fetchUrl changes
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(fetchUrl);
-        setMovies(response.data.results);
+        setMovies(response.data.results); // Save movies in state
       } catch (err) {
         console.error("Error fetching movies:", err);
       }
@@ -22,15 +27,18 @@ const Row = ({ title, fetchUrl, isLarge }) => {
     fetchData();
   }, [fetchUrl]);
 
-  // Handle clicking a movie poster to open/close trailer
+
   const handleClick = (movie) => {
+
     if (trailerUrl) {
-      setTrailerUrl(""); // Close if already open
+      setTrailerUrl("");
     } else {
+      // movie-trailer finds YouTube trailer
       movieTrailer(movie?.title || movie?.name || movie?.original_name)
         .then((url) => {
+          // Extract YouTube video ID (v=xxxxx)
           const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get("v")); // YouTube video ID
+          setTrailerUrl(urlParams.get("v"));
         })
         .catch(() => console.log("Trailer not found"));
     }
@@ -42,13 +50,17 @@ const Row = ({ title, fetchUrl, isLarge }) => {
 
       <div className="row-posters">
         {movies
-          .filter((movie) => (isLarge ? movie.poster_path : movie.backdrop_path))
+          .filter((movie) =>
+            isLarge ? movie.poster_path : movie.backdrop_path
+          )
           .map((movie) => (
             <img
               key={movie.id}
               onClick={() => handleClick(movie)}
               className={`row-poster ${isLarge ? "row-poster-large" : ""}`}
-              src={`${baseImgUrl}${isLarge ? movie.poster_path : movie.backdrop_path}`}
+              src={`${baseImgUrl}${
+                isLarge ? movie.poster_path : movie.backdrop_path
+              }`}
               alt={movie.name || movie.title}
             />
           ))}
@@ -62,7 +74,7 @@ const Row = ({ title, fetchUrl, isLarge }) => {
             height: "400",
             width: "100%",
             playerVars: {
-              autoplay: 1,
+              autoplay: 1, // auto start playing
             },
           }}
         />

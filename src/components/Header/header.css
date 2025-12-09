@@ -3,13 +3,13 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  background-color: transparent; /* Transparent by default */
-  transition: background-color 0.5s ease; /* Smooth transition on scroll */
+  background-color: transparent;
+  transition: background-color 0.5s ease;
 }
 
-/* Header becomes black after scrolling */
+
 .header-outer-container.header-black {
-  background-color: #141414;
+  background-color: #141414;   /* Header becomes black after scrolling */
 }
 
 .header-container {

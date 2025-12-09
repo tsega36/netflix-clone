@@ -29,7 +29,7 @@
 /* Posters */
 .row-poster {
   flex: 0 0 auto; /* prevent shrinking */
-  width: 140px; /* fixed width for small posters */
+  width: 140px;
   height: 200px;
   object-fit: cover;
   border-radius: 5px;
